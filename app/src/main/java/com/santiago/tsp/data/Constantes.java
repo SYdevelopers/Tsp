@@ -12,7 +12,7 @@ public class Constantes implements BaseColumns {
 
 
 
+    /*public final static String TIEMPO="";
     public final static String TIEMPO="";
-    public final static String TIEMPO="";
-    public final static String TIEMPO="";
+    public final static String TIEMPO="";*/
 }

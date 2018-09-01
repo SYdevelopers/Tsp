@@ -90,6 +90,7 @@ public class TimeLogActivity extends AppCompatActivity {
          interruptions=findViewById(R.id.txt_interruption);
          phase=findViewById(R.id.spinner_phase);
          phases=new ArrayList<String>(){{
+             add("Seleccione una opcion");
              add("PLAN");
              add("DLD");
              add("CODE");
