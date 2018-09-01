@@ -40,7 +40,19 @@ public class TimeLogActivity extends AppCompatActivity {
                 DateFormat fecha =new SimpleDateFormat("dd/mm/yy");
                 String hour=hora.format(date);
                 String dat=fecha.format(date);
-                txtStart.setText(hour +" " +dat);
+                txtStart.setText("Fecha: " + dat  +" Hora: " +hour);
+            }
+        });
+
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Date date=new Date();
+                DateFormat hora =new SimpleDateFormat("hh:mm");
+                DateFormat fecha =new SimpleDateFormat("dd/mm/yy");
+                String hour=hora.format(date);
+                String dat=fecha.format(date);
+                txtStart.setText("Fecha: " + dat  +" Hora: " +hour);
             }
         });
     }
