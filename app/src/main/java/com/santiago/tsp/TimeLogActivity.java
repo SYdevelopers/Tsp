@@ -35,9 +35,12 @@ public class TimeLogActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Date date=new Date();
                 DateFormat hora =new SimpleDateFormat("hh:mm");
                 DateFormat fecha =new SimpleDateFormat("dd/mm/yy");
-                txtStart.setText(fecha +" " +hora);
+                String hour=hora.format(date);
+                String dat=fecha.format(date);
+                txtStart.setText(hour +" " +dat);
             }
         });
     }
