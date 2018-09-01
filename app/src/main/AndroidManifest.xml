@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TimeLogActivity"></activity>
+        <activity android:name=".TimeLogActivity" />
+        <activity android:name=".DefectLogActivity"></activity>
     </application>
 
 </manifest>

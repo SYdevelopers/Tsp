@@ -48,11 +48,11 @@ public class InicioActivity extends AppCompatActivity {
                 builder.setItems(items, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (items.equals("Time Log")){
+                        if (items[i].equals("Time Log")){
                             startActivity(new Intent(InicioActivity.this,TimeLogActivity.class));
-                        }else if (items.equals("Defect Log")){
+                        }else if (items[i].equals("Defect Log")){
 
-                        }else if (items.equals("Project Plan Summary")){
+                        }else if (items[i].equals("Project Plan Summary")){
 
                         }
                     }
