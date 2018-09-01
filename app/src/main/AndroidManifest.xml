@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".InicioActivity"
+            android:name=".activities.InicioActivity"
             android:theme="@style/Inicio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +18,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TimeLogActivity" />
-        <activity android:name=".DefectLogActivity"></activity>
+        <activity
+            android:name=".activities.TimeLogActivity"
+            android:parentActivityName=".activities.InicioActivity" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.InicioActivity"/>
+
+        </activity>
+        <activity android:name=".activities.DefectLogActivity"
+                  android:parentActivityName=".activities.InicioActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.InicioActivity"/>
+
+        </activity>
+        <activity
+            android:name=".activities.ProjectPlanSummaryActivity"
+            android:label="@string/title_activity_project_plan_summary"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".activities.InicioActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.InicioActivity"/>
+        </activity>
     </application>
 
 </manifest>

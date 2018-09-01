@@ -1,4 +1,4 @@
-package com.santiago.tsp;
+package com.santiago.tsp.activities;
 
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.santiago.tsp.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,10 +24,13 @@ public class TimeLogActivity extends AppCompatActivity {
     Spinner phase;
     ArrayList<String>phases;
     ArrayAdapter<String> adapter;
+    Date date1;
+    Date date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_log);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         inicializar();
         horasSistema();
 
@@ -35,26 +40,42 @@ public class TimeLogActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Date date=new Date();
-                DateFormat hora =new SimpleDateFormat("hh:mm");
-                DateFormat fecha =new SimpleDateFormat("dd/mm/yy");
-                String hour=hora.format(date);
-                String dat=fecha.format(date);
-                txtStart.setText("Fecha: " + dat  +" Hora: " +hour);
+                date=new Date();
+                DateFormat fechaStart =new SimpleDateFormat("dd/MM/yy hh:mm");
+                String fechaS=fechaStart.format(date);
+                txtStart.setText(fechaS);
             }
         });
 
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Date date=new Date();
-                DateFormat hora =new SimpleDateFormat("hh:mm");
-                DateFormat fecha =new SimpleDateFormat("dd/mm/yy");
-                String hour=hora.format(date);
-                String dat=fecha.format(date);
-                txtStart.setText("Fecha: " + dat  +" Hora: " +hour);
+                date1=new Date();
+                DateFormat fechaStop =new SimpleDateFormat("dd/MM/yy hh:mm");
+                String fechaST=fechaStop.format(date1);
+                txtStop.setText(fechaST);
+
+
             }
         });
+    }
+
+    private void  calcularDiferencia(Date stop,Date start) {
+        if (interruptions.getText().toString().isEmpty()){
+            long diferencia=(stop.getTime()-start.getTime());
+            long sengMill=1000;
+            long minsMill=sengMill*60;
+            long minutos=diferencia/minsMill;
+            txtDelta.setText(minutos+"");
+        }else {
+            long interrupcion= Long.parseLong(interruptions.getText().toString());
+            long diferencia=(stop.getTime()-start.getTime()-interrupcion);
+            long sengMill=1000;
+            long minsMill=sengMill*60;
+            long minutos=diferencia/minsMill;
+            txtDelta.setText(minutos+"");
+        }
+
     }
 
 

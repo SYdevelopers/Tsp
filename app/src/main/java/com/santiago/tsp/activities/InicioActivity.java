@@ -1,4 +1,4 @@
-package com.santiago.tsp;
+package com.santiago.tsp.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.santiago.tsp.R;
 
 import java.util.ArrayList;
 
@@ -51,9 +53,9 @@ public class InicioActivity extends AppCompatActivity {
                         if (items[i].equals("Time Log")){
                             startActivity(new Intent(InicioActivity.this,TimeLogActivity.class));
                         }else if (items[i].equals("Defect Log")){
-
+                            startActivity(new Intent(InicioActivity.this,DefectLogActivity.class));
                         }else if (items[i].equals("Project Plan Summary")){
-
+                            startActivity(new Intent(InicioActivity.this,ProjectPlanSummaryActivity.class));
                         }
                     }
                 }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
