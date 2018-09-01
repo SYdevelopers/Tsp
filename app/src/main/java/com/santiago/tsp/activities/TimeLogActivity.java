@@ -24,8 +24,8 @@ public class TimeLogActivity extends AppCompatActivity {
     Spinner phase;
     ArrayList<String>phases;
     ArrayAdapter<String> adapter;
-    Date date1;
-    Date date;
+    Date dateStart;
+    Date dateStop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +40,9 @@ public class TimeLogActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                date=new Date();
+                dateStart=new Date();
                 DateFormat fechaStart =new SimpleDateFormat("dd/MM/yy hh:mm");
-                String fechaS=fechaStart.format(date);
+                String fechaS=fechaStart.format(dateStart);
                 txtStart.setText(fechaS);
             }
         });
@@ -50,10 +50,11 @@ public class TimeLogActivity extends AppCompatActivity {
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                date1=new Date();
+                dateStop=new Date();
                 DateFormat fechaStop =new SimpleDateFormat("dd/MM/yy hh:mm");
-                String fechaST=fechaStop.format(date1);
+                String fechaST=fechaStop.format(dateStop);
                 txtStop.setText(fechaST);
+                calcularDiferencia(dateStop,dateStart);
 
 
             }
@@ -61,7 +62,7 @@ public class TimeLogActivity extends AppCompatActivity {
     }
 
     private void  calcularDiferencia(Date stop,Date start) {
-        if (interruptions.getText().toString().isEmpty()){
+        if (interruptions.getText().toString().isEmpty()|| interruptions.getText().toString().equals("0")){
             long diferencia=(stop.getTime()-start.getTime());
             long sengMill=1000;
             long minsMill=sengMill*60;
